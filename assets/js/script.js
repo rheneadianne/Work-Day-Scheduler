@@ -29,20 +29,17 @@ const timeBlocks = () => {
 
         timeBlockDiv.append(blocks) // appends blocks to container div
     }
-}
+} 
 
 timeBlocks(); // calls function
 
 // Creates to Local Storage Entry
-$("#9AM .description").val(localStorage.getItem("9AM"));
-$("#10AM .description").val(localStorage.getItem("10AM"));
-$("#11AM .description").val(localStorage.getItem("11AM"));
-$("#12PM .description").val(localStorage.getItem("12PM"));
-$("#1PM .description").val(localStorage.getItem("1PM"));
-$("#2PM .description").val(localStorage.getItem("2PM"));
-$("#3PM .description").val(localStorage.getItem("3PM"));
-$("#4PM .description").val(localStorage.getItem("4PM"));
-$("#5PM .description").val(localStorage.getItem("5PM"));
+const timeIdArray = [$("#9AM .description"), $("#10AM .description"), $("#11AM .description"), $("#12PM .description"), $("#1PM .description"), $("#2PM .description"), $("#3PM .description"), $("#4PM .description"), $("#5PM .description")]
+const timeIdKey = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
+
+for (i = 0; i < timeIdArray.length; i++) {
+   timeIdArray[i].val(localStorage.getItem(timeIdKey[i]));
+}
 
 //Creates Entry when Saved
 $(".saveBtn").click(function () {
