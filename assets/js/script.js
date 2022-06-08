@@ -21,9 +21,9 @@ const timeBlocks = () => {
 
         workHour < currentHour ? // if time in the past
             blocks = blocks + '<textarea class="col-md-10 col-8 description past"></textarea>' :
-            workHour === currentHour ? // if current hour
-                blocks = blocks + '<textarea class="col-md-10 col-8 description present"></textarea>' :
-                blocks = blocks + '<textarea class="col-md-10 col-8 description future"></textarea> '; // if time in present
+        workHour === currentHour ? // if current hour
+            blocks = blocks + '<textarea class="col-md-10 col-8 description present"></textarea>' :
+        blocks = blocks + '<textarea class="col-md-10 col-8 description future"></textarea> '; // if time in present
 
         blocks = blocks + '<button class="btn saveBtn col-md-1 col-2" value="' + allHours[workHour] + '"><i class="fas fa-save"></i></button>' + '</div>' // adds save button
 
