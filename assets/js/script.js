@@ -22,7 +22,9 @@ const dateAndTime = () => {
     currentDay.text(`Today is ${dayOfWeek}, ${month} ${date}, ${year}`);
 }
 
-dateAndTime()
+dateAndTime();
+
+let currentHour = today.getHours()
 
 const timeBlocks = () => {
     const allHours = ["12 AM","1 AM","2 AM","3 AM","4 AM","5 AM","6 AM","7 AM","8 AM","9 AM","10 AM","11 AM","12 PM",
@@ -32,7 +34,15 @@ const timeBlocks = () => {
     const timeBlockDiv = $(".container");
 
     for (i = workStart; i <= workEnd; i++) {
+        //builds time blocks
         let blocks = '<div class="row time-block"> ' + '<div class="col-md-1 hour">' + allHours[i] + '</div> ';
+        
+        i < currentHour ?
+            blocks = blocks + '<textarea class="col-md-10 description past" id="text' + allHours[i] + '"></textarea>' :
+        i === currentHour ?
+            blocks = blocks + '<textarea class="col-md-10 description present" id="text' + allHours[i] + '"></textarea>' :
+        blocks = blocks + '<textarea class="col-md-10 description future" id="text' + allHours[i] + '"></textarea> ';
+        
         timeBlockDiv.append(blocks)
     }
 }
