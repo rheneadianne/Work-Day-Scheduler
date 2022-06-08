@@ -44,10 +44,9 @@ $("#3PM .description").val(localStorage.getItem("3PM"));
 $("#4PM .description").val(localStorage.getItem("4PM"));
 $("#5PM .description").val(localStorage.getItem("5PM"));
 
-// Saves Entry
+//Creates Entry when Saved
 $(".saveBtn").click(function () {
-    let schedule = $(this).siblings(".description").val();
-    let timeId = $(this).parent().attr("id")
+    let schedule = $(this).siblings(".description").val();  //saves textarea
+    let timeId = $(this).parent().attr("id") //sets key to parent id
     localStorage.setItem(timeId, schedule)
-    console.log($(this).parent().attr("id"))
 })
